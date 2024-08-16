@@ -53,7 +53,7 @@ def add_student():
     mark = int(input("Enter Marks:")
     K = [roll_no,name,mark]
 
-    W = csv.write(f)
+    W = csv.writer(f)
     W.writerow(K)
 
 
