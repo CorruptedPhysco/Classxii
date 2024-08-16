@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Program 1</h1>
+        <h4>Q:Write a program to create a binary file emp.dat with functions add student and search for a record using employee code.</h4>
+        <pre><code>
+import pickle
+def addemprecord():
+        code=int(input("enter code:"))
+        name = input("Enter name:")
+        dept=input("Enter department name:")
+        salary = int(input("Enter salary:"))
+        data = [code, name, dept, salary]
+        f=open("emp.dat", "ab")
+        pickle.dump(data, f)
+        f.close()
+
+
+def searchemprecord():
+    f=open("emp.dat","rb")
+    rno=int(input("enter code to search"))
+    flag=0
+    try:
+        while True:
+            record=pickle.load(f)
+            if record[0]==rno:
+                print("Record found")
+                print("Code:", record[0]")
+                print("Name:", record[1]")
+                print("Salary:", record[2]")
+                flag=1
+                break
+        
+    except EOFError:
+        pass
+    if flag==0:
+            print("Record not found")
+    f.close()
+
+
+while True:
+    ch=int(input("Enter 1.add employee\n2.Search employee\n3.exit\n"))
+    if ch==1:
+        addemprecord()
+    elif ch==2:
+        searchemprecord()
+    elif ch==3:
+        break
+    else:
+        print("Invalid choice")
+
+
+        </code></pre>
+        <a class="back-link" href="index.html">Back to Programs List</a>
+    </div>
+</body>
+</html>

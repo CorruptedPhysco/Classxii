@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Program 1</h1>
+        <h4>Q:Write a program to create a binary file emp.dat with functions add student and search for a record using employee code.</h4>
+        <pre><code>
+import pickle
+def student_data():
+        roll=int(input("enter roll:"))
+        name = input("Enter name:")
+        marks = int(input("Enter marks:"))
+        data = [roll, name, marks]
+        f=open("stud.dat", "ab")
+        pickle.dump(data, f)
+        f.close()
+
+def display_data():
+    f=open("stud.dat", "rb")
+    try:
+        while True:
+            stud = pickle.load(f)
+            if stud[2]>40:
+                print(stud)
+
+    except EOFError:
+        pass
+    f.close()
+
+
+
+while True:
+    ch=int(input("Enter 1.add student\n2.display all student above 40 \n3.exit\n"))
+    if ch==1:
+        student_data()
+    elif ch==2:
+        display_data()
+    elif ch==3:
+        break
+    else:
+        print("Invalid choice")
+
+        </code></pre>
+        <a class="back-link" href="index.html">Back to Programs List</a>
+    </div>
+</body>
+</html>
