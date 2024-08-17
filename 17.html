@@ -1,1 +1,87 @@
-test
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program 17</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background-color: #eaeaea;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Program 17</h1>
+        <h4>Q:</h4>
+        <pre><code>
+import csv
+def add_emp():
+  with open('emp.csv', 'a', newline='') as f:
+    W=csv.writer(f)
+    name = input("Enter Employee Name:")
+    empno = int(input("Enter Employee Number:"))
+    salary = int(input("Enter Employee Salary:"))
+    L=[empno, name, salary]
+    W.writerow(L)
+
+def display_sal():
+  f = open('emp.csv','r')
+  R=csv.reader(f)
+  for i in R:
+    if int(i[2])>10000:
+      print(i)
+
+  f.close()
+
+
+while True:
+  print("1.Add employee/n2.Display all employees with salary above 10000.\n3.Exit\n")
+  ch = int(input("Enter choice:"))
+  if ch==1:
+    add_emp()
+  elif ch==2:
+    display_sal()
+  elif: ch==3:
+    break
+  else:
+    print("invalid choice")
+
+
+
+</code></pre>
+        <a class="back-link" href="index.html">Back to Programs List</a>
+    </div>
+</body>
+</html>
