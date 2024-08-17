@@ -67,9 +67,10 @@ def searchemprecord():
             record=pickle.load(f)
             if record[0]==rno:
                 print("Record found")
-                print("Code:", record[0]")
-                print("Name:", record[1]")
-                print("Salary:", record[2]")
+                print("Code:", record[0])
+                print("Name:", record[1])
+                print("Department:", record[2]) 
+                print("Salary:", record[3])
                 flag=1
                 break
         
